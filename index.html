@@ -1240,8 +1240,7 @@ function plEnd(m) {
           h("p", {}, `${m.score} puan · ${m.total} oyuncu`)))),
     top3 ? h("div", { class: "prize", role: "img", "aria-label": "Çikolata soslu rulolar" }) : null,
     top3 ? promoCard(String(m.promo || "")) : null,
-    appCard(String(m.app || "")),
-    h("button", { class: "btn " + (top3 ? "ash" : "ash"), style: "align-self:flex-start", onclick: plRejoin }, "yeni tura katıl"));
+    appCard(String(m.app || "")));
   if (top3 && !P.celebrated) { P.celebrated = true; celebrate(m.rank); }
 }
 
