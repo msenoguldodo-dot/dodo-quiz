@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#FF4E00">
+<script>/* GitHub kopyası: oyuncuları kendi sunucumuza gönder, moderatör (?yonetim) burada kalabilir */
+if (/github\.io$/.test(location.hostname) && !/[?&](yonetim|srv)(=|&|$)/.test(location.search)) location.replace("https://dodopizza-menu.com.tr/quiz/");</script>
 <title>Dodo Quiz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -477,7 +479,8 @@ function loadQuiz() {
   if (!/^\d{6}$/.test(q.pin || "")) { q.pin = newPin(); store(STORE_KEY, JSON.stringify(q)); }
   return q;
 }
-function playerUrl() { return location.origin + location.pathname + (params.get("srv") ? "?srv=" + params.get("srv") : ""); }
+const PLAYER_HOME = "https://dodopizza-menu.com.tr/quiz/";   // oyuncuların karekodla gittiği adres
+function playerUrl() { return params.get("srv") ? location.origin + location.pathname + "?srv=" + params.get("srv") : PLAYER_HOME; }
 let quiz = null;
 function saveQuiz() { if (!store(STORE_KEY, JSON.stringify(quiz))) toast("Tarayıcı kaydetmeye izin vermedi. Sayfayı kapatmadan oynayın."); }
 
